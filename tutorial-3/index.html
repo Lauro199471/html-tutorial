@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Javascript</title>
+    <link rel="stylesheet"  type="text/css" href="style.css">
+</head>
+
+<body>
+    <!-- Header Page-->
+    <div class="header">
+        <h1>Learning Javascript</h1>
+        <p>by Lauro Cabral</p>
+    </div>
+
+    <!-- Body Page-->
+    <div class="container">
+        <button onclick="doFunction()"> Click Me </button>
+        <button onclick="this.innerHTML = 'You Clicked!'"> Click me</button>
+
+        <br>
+
+        <button onmouseout="clearDate()" onmouseover="showDate()"> Show Date </button>
+
+        <br>
+
+        <h1 id="time"></h1>
+
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        console.log("Hello World");
+        for(var i = 0; i < 10; i++){
+            console.log("i = " + i);
+        }
+
+        var arry1 = [12, "Hey", 4.12, "Bye"];
+        arry1.forEach(function(elements_arry1){
+            console.log("element = " + elements_arry1);
+        });
+
+        var j = 0;
+        while(j < 20){
+            if((j%2) == 0){
+                console.log("Even Number: " + j);
+            }
+            else{
+                console.log("Odd Number: " + j);
+            }
+            j++;
+        }
+
+        // Object
+        var person = {
+            firstName : "Lauro",
+            lastName  : "Cabral",
+            age       : 25,
+            address   :{
+                        street : "2323 John Doe Ave",
+                        City   : "NoWhereCity",
+                        State  : "BS"
+            },
+            fullName: function(){
+                return this.firstName + " " + "daBeast";
+            }
+        }
+        console.log("person.firstName = " + person.firstName);
+        console.log("person.address.street = " + person.address.street);
+        console.log("person.fullName() = " + person.fullName());
+        
+        var apple = new Object();
+        apple.color = "red";
+        apple.shape = "round";
+        apple.describe = function(){
+            return "The color of an apple is " + this.color + "\nThe shape of an apple is " + this.shape;
+        }
+        console.log(apple.describe())
+
+        function Fruit(name, shape, color){
+            this.name = name;
+            this.shape = shape;
+            this.color = color;
+        }
+        var apple = new Fruit("honeyCrisp", "round", "red");
+        console.log(apple);
+
+        // Button Function
+        function doFunction(){
+            alert("You Clicked!");
+        }
+        //
+
+        // Date Function
+        function showDate(){
+            var time = document.getElementById("time");
+            time.innerHTML = Date();
+        }
+
+        function clearDate(){
+            var time = document.getElementById("time");
+            time.innerHTML = " ";
+        }
+
+    </script>
+</body>
+
+</html>
